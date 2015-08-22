@@ -1,0 +1,78 @@
+---
+---
+$breakpoint: 420px;
+$bg-color: #F7F6F1;
+
+body {
+  font-family: Roboto, sans-serif;
+  padding: 15% 1em 0;
+  margin: 0 auto;
+  max-width: 600px;
+  background: $bg-color;
+}
+
+
+.bio {
+  @media(max-width: $breakpoint - 1) {
+    text-align: center;
+  }
+  &__right {
+    @media(min-width: $breakpoint) {
+      float: right;
+    }
+  }
+  &__photo {
+    width: 150px;
+    border-radius: 50%;
+  }
+  &__name {
+    margin-bottom: 1rem;
+  }
+}
+
+.profiles {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 1em;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+  & > a {
+    float: left;
+    background: $bg-color;
+    padding-right: 10px;
+  }
+}
+
+.profile {
+  margin-bottom: 5px;
+  @mixin button($name, $color) {
+    &--#{$name} {
+      color: $color;
+      &:hover {
+        color: lighten($color, 15%);
+      }
+    }
+  }
+  @include button("github", #333);
+  @include button("twitter", #55acee);
+  @include button("linkedin", #0077b5);
+  .fa {
+    margin-right: 5px;
+    font-size: 2rem;
+    vertical-align: middle;
+  }
+}
+
+.projects {
+  margin-top: 4em;
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
