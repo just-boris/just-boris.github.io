@@ -40,7 +40,6 @@
     function fetchProject(projectElm) {
         var name = projectElm.getAttribute('data-name');
         return fetchFromGithub('/repos/' + name).then(function(repo) {
-        // return Promise.resolve({stargazers_count: i, forks_count: 10 - i}).then(function(repo) {
             fadeElement(
                 projectElm.querySelector('.project__stars'),
                 decline(repo.stargazers_count, 'star', 'stars'),
