@@ -1,18 +1,23 @@
 ---
 projects:
   - title: "less-plugin-glob"
+    full_name: "just-boris/less-plugin-glob"
     homepage: "https://github.com/just-boris/less-plugin-glob"
     description: "Globbing support for @imports in LESS"
   - title: "gulp-freeze"
+    full_name: "just-boris/gulp-freeze"
     homepage: "https://github.com/just-boris/gulp-freeze"
     description: "Generate unique filename for file based on its content"
   - title: "jasmine-collection-matchers"
+    full_name: "just-boris/jasmine-collection-matchers"
     homepage: "https://github.com/just-boris/jasmine-collection-matchers"
     description: "Set of additional matchers for Jasmine testing framework"
   - title: "require-mini"
+    full_name: "just-boris/require-mini"
     homepage: "https://github.com/just-boris/require-mini"
     description: "Tiny module loader, compatible with Require.JS"
   - title: "multieval.it"
+    full_name: "just-boris/multieval"
     homepage: "https://github.com/just-boris/multieval"
     description: "Instantly evaluate javascript in different browsers and compare results"
 ---
@@ -33,8 +38,8 @@ projects:
     </div>
     <h1 class="bio__name">Boris Serdiuk</h1>
     <p>Frontend developer</p>
-    <p>Work at <i>some company</i></p>
-    <p>Live in <i>some place</i></p>
+    <p class="bio__company fade">Work at</p>
+    <p class="bio__location fade">Live in</p>
   </section>
   <section class="profiles">
     <div class="profiles__col">
@@ -57,12 +62,12 @@ projects:
   <section class="projects">
     <h2 class="projects__title">My awesome projects</h2>
     {% for project in page.projects %}
-      <div class="project">
+      <div class="project" data-name="{{project.full_name}}">
         <i class="project__icon fa fa-book"></i>
         <h3 class="project__title">
-          <a href="{{project.homepage}}">{{project.title}}</a>
-          <span class="project__likes"></span>
-          <span class="project__forks"></span>
+          <a class="project__link" href="{{project.homepage}}">{{project.title}}</a>
+          <span class="project__stars fade"></span>
+          <span class="project__forks fade"></span>
         </h3>
         <p>{{project.description}}</p>
       </div>
@@ -71,5 +76,14 @@ projects:
       <a href="/repo-list">See more projects</a>
     </div>
   </section>
+  <script type="text/javascript">
+      if(typeof Promise === 'undefined') {
+          document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/promiz/1.0.4/promiz.js"></'+'script>')
+      }
+      if(typeof fetch === 'undefined') {
+          document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.9.0/fetch.js"></'+'script>')
+      }
+  </script>
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

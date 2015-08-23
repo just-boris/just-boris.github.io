@@ -94,10 +94,31 @@ a {
   }
   &__title {
     font-size: 1.5rem;
+    & > * {
+        padding-right: 0.5rem;
+    }
+  }
+  &__stars, &__forks {
+      font-size: 0.7em;
+      font-weight: normal;
+      white-space: nowrap;
   }
 }
 
-.footer {
-  padding: 2em 0;
-  text-align: right;
+.fade {
+    opacity: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    &--top {
+        top: -20px;
+    }
+    &--left {
+        left: -20px;
+    }
+    &--in {
+        transition-property: opacity, top, left;
+        transition-duration: 1s;
+        opacity: 1;
+    }
 }
