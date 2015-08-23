@@ -1,33 +1,75 @@
+---
+projects:
+  - title: "less-plugin-glob"
+    homepage: "https://github.com/just-boris/less-plugin-glob"
+    description: "Globbing support for @imports in LESS"
+  - title: "gulp-freeze"
+    homepage: "https://github.com/just-boris/gulp-freeze"
+    description: "Generate unique filename for file based on its content"
+  - title: "jasmine-collection-matchers"
+    homepage: "https://github.com/just-boris/jasmine-collection-matchers"
+    description: "Set of additional matchers for Jasmine testing framework"
+  - title: "require-mini"
+    homepage: "https://github.com/just-boris/require-mini"
+    description: "Tiny module loader, compatible with Require.JS"
+  - title: "multieval.it"
+    homepage: "https://github.com/just-boris/multieval"
+    description: "Instantly evaluate javascript in different browsers and compare results"
+---
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Catatron website</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet" type="text/css">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catatron website</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<section class="bio">
-		<div class="bio__right">
-			<img class="bio__photo" src="images/photo.jpg" srcset="images/photo_2x.jpg 2x" alt="photo" />
-		</div>
-		<h1 class="bio__name">Boris Serdiuk</h1>
-		<p>Frontend developer</p>
-		<p>Work at <i>some company</i></p>
-		<p>Live in <i>some place</i></p>
-	</section>
-	<section class="profiles">
-		<a class="profile profile--github" href="https://github.com/just-boris">
-			<i class="fa fa-github"></i>Github
-		</a>
-		<a class="profile profile--twitter" href="https://twitter.com/boriscoder">
-			<i class="fa fa-twitter"></i>Twitter
-		</a>
-		<a class="profile profile--linkedin" href="https://www.linkedin.com/in/boriscoder">
-			<i class="fa fa-linkedin-square"></i>LinkedIn
-		</a>
-	</section>
+  <section class="bio">
+    <div class="bio__right">
+      <img class="bio__photo" src="images/photo.jpg" srcset="images/photo_2x.jpg 2x" alt="photo" />
+    </div>
+    <h1 class="bio__name">Boris Serdiuk</h1>
+    <p>Frontend developer</p>
+    <p>Work at <i>some company</i></p>
+    <p>Live in <i>some place</i></p>
+  </section>
+  <section class="profiles">
+    <div class="profiles__col">
+      <a class="profile profile--github" href="https://github.com/just-boris">
+        <i class="fa fa-github"></i>Github
+      </a>
+      <a class="profile profile--linkedin" href="https://www.linkedin.com/in/boriscoder">
+        <i class="fa fa-linkedin-square"></i>LinkedIn
+      </a>
+    </div>
+    <div class="profiles__col">
+      <a class="profile profile--twitter" href="https://twitter.com/boriscoder">
+        <i class="fa fa-twitter"></i>Twitter
+      </a>
+      <a class="profile profile--email" href="mailto:just-boris@hotmail.com">
+        <i class="fa fa-envelope-o"></i>just-boris@hotmail.com
+      </a>
+    </div>
+  </section>
+  <section class="projects">
+    <h2 class="projects__title">My awesome projects</h2>
+    {% for project in page.projects %}
+      <div class="project">
+        <i class="project__icon fa fa-book"></i>
+        <h3 class="project__title">
+          <a href="{{project.homepage}}">{{project.title}}</a>
+          <span class="project__likes"></span>
+          <span class="project__forks"></span>
+        </h3>
+        <p>{{project.description}}</p>
+      </div>
+    {% endfor %}
+    <div class="projects__more">
+      <a href="/repo-list">See more projects</a>
+    </div>
+  </section>
 </body>
 </html>
